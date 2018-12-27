@@ -35,7 +35,7 @@ export default {
     editGenre() {
       console.log("Edit Called");
       Api.editGenre(this.$route.params.id, this.genre.name).then(data => {
-        this.$router.push("/  ");
+        this.$router.push("/");
       });
     }
   }
