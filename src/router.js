@@ -14,9 +14,9 @@ export default new Router({
       component: Home
     },
     {
-      path: "/:id",
+      path: "/genre/:id",
       name: "genre-edit",
-      component: Home
+      component: () => import(/* webpackChunkName: "about" */ "./views/EditGenre.vue")
     },
     {
       path: "/about",

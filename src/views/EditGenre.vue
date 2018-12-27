@@ -1,5 +1,17 @@
 <template>
-  <div></div>
+  <div>
+    {{genre}}
+    <form action="#">
+      <input
+        type="text"
+        name="name"
+        class="form-control"
+        placeholder="Enter Name"
+        v-model="genre.name"
+      >
+      <button v-on:click="editGenre()" type="button" class="btn btn-primary">Save</button>
+    </form>
+  </div>
 </template>
 
 <script>
@@ -17,7 +29,13 @@ export default {
   methods: {
     getGenre() {
       Api.getGenre(this.$route.params.id).then(data => {
-        this.genres = data;
+        this.genre = data;
+      });
+    },
+    editGenre() {
+      console.log("Edit Called");
+      Api.editGenre(this.$route.params.id, this.genre.name).then(data => {
+        this.$router.push("/  ");
       });
     }
   }

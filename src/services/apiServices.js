@@ -9,5 +9,24 @@ export default {
     })
       .then(response => response.data)
       .catch(error => error);
+  },
+  getGenre(id) {
+    return axios({
+      method: "get",
+      url: "genre/" + id
+    })
+      .then(response => response.data)
+      .catch(error => error);
+  },
+  editGenre(id, name) {
+    return axios({
+      method: "put",
+      url: "genre/" + id,
+      data: {
+        name: name
+      }
+    })
+      .then(response => response.data)
+      .catch(error => error);
   }
 };
